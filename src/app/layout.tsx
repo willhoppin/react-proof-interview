@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Essay Doer Bot - AI-Powered Essay Writing Helper for Students',
-  description: 'Automate your essay writing with Essay Doer Bot. Our AI-powered tool assists high school and college students in crafting top-notch essays in minutes.',
+  title: 'Interviewer Bot',
+  description: '',
 }
 
 export default function RootLayout({

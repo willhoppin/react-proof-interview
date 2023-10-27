@@ -1,4 +1,3 @@
-
 'use client';
 import { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -27,11 +26,17 @@ export default function Home() {
         <div className="w-1/2 h-full p-4 border-r border-gray-300">
           {/* Chat History */}
           <div className="flex flex-col h-4/5 overflow-y-scroll border-b border-gray-200 mb-4">
-            {chatHistory.map((message, index) => (
-              <div key={index} className="my-2 p-2 bg-blue-200 rounded-md">
-                {message}
+            {chatHistory.length === 0 ? (
+              <div className="my-2 p-2 text-center text-white">
+                Welcome to your mock interview! Send a message to get started!
               </div>
-            ))}
+            ) : (
+              chatHistory.map((message, index) => (
+                <div key={index} className="my-2 p-2 bg-blue-200 rounded-md">
+                  {message}
+                </div>
+              ))
+            )}
           </div>
 
           {/* Chat Input */}
