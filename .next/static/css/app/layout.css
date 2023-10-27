@@ -631,6 +631,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-2\/3 {
+  height: 66.666667%;
+}
 .w-1\/2 {
   width: 50%;
 }
@@ -735,6 +738,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -762,6 +769,9 @@ video {
 }
 .text-center {
   text-align: center;
+}
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .text-xl {
   font-size: 1.25rem;

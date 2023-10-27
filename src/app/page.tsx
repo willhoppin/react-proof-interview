@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Home() {
@@ -12,6 +12,22 @@ export default function Home() {
       setCurrentMessage('');
     }
   };
+
+  useEffect(() => {
+    const insults = [
+      "Are you sure about that??",
+      "Your code looks weak as hell... why did you do that?",
+      "Seriously? My grandma codes better than that.",
+      "Did you learn coding from a cereal box?"
+    ];
+
+    const timer = setInterval(() => {
+      const randomInsult = insults[Math.floor(Math.random() * insults.length)];
+      setChatHistory((prev) => [...prev, randomInsult]);
+    }, 30000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="h-screen w-screen text-black">
@@ -32,7 +48,7 @@ export default function Home() {
               </div>
             ) : (
               chatHistory.map((message, index) => (
-                <div key={index} className="my-2 p-2 bg-blue-200 rounded-md">
+                <div key={index} className={`my-2 p-2 rounded-md ${index % 2 === 0 ? 'bg-white text-black' : 'bg-blue-200 text-white'}`}>
                   {message}
                 </div>
               ))
@@ -57,9 +73,15 @@ export default function Home() {
 
         {/* Code Window */}
         <div className="w-1/2 h-full p-4">
+          {/* Instructions Box */}
+          <div className="p-4 mb-4 border rounded-md bg-gray-100 mb-200">
+            Write a function to solve the TwoSum problem. Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.
+          </div>
+
+          {/* Code Textarea */}
           <textarea
-            placeholder="Enter code here"
-            className="w-full h-full p-4 border rounded-md resize-none"
+            placeholder="Enter your solution here..."
+            className="w-full h-4/5 p-4 border rounded-md font-mono" // font-mono represents Courier New font.
           />
         </div>
       </div>
